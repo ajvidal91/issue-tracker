@@ -1,0 +1,24 @@
+{
+  "name": "pro-mern",
+  "version": "1.0.0",
+  "description": "mern stack starter kit ",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -w server server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "babel public/src/components --out-dir public",
+    "watch": "babel public/src/components --out-dir public --watch --verbose"
+  },
+  "author": "Angel Vidal",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/preset-react": "^7.8.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4"
+  }
+}
