@@ -18,10 +18,106 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var IssueFilter =
+var issues = [{
+  id: 1,
+  status: 'New',
+  owner: 'Ravan',
+  effort: 5,
+  created: new Date('2018-08-15'),
+  due: undefined,
+  title: 'Error in console when clicking Add'
+}, {
+  id: 2,
+  status: 'Assigned',
+  owner: 'Eddie',
+  effort: 14,
+  created: new Date('2018-08-16'),
+  due: new Date('2018-08-30'),
+  title: 'Missing bottom border on panel'
+}];
+
+var IssueTable =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(IssueFilter, _React$Component);
+  _inherits(IssueTable, _React$Component);
+
+  function IssueTable() {
+    _classCallCheck(this, IssueTable);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IssueTable).apply(this, arguments));
+  }
+
+  _createClass(IssueTable, [{
+    key: "render",
+    value: function render() {
+      var issueRows = issues.map(function (issue) {
+        return React.createElement(IssueRow, {
+          key: issue.id,
+          issue: issue
+        });
+      });
+      return React.createElement("table", {
+        className: "bordered-table"
+      }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "ID"), React.createElement("th", null, "Status"), React.createElement("th", null, "Owner"), React.createElement("th", null, "Created"), React.createElement("th", null, "Effort"), React.createElement("th", null, "Due Date"), React.createElement("th", null, "Title"))), React.createElement("tbody", null, issueRows));
+    }
+  }]);
+
+  return IssueTable;
+}(React.Component);
+
+var BorderWrap =
+/*#__PURE__*/
+function (_React$Component2) {
+  _inherits(BorderWrap, _React$Component2);
+
+  function BorderWrap() {
+    _classCallCheck(this, BorderWrap);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(BorderWrap).apply(this, arguments));
+  }
+
+  _createClass(BorderWrap, [{
+    key: "render",
+    value: function render() {
+      var borderedStyle = {
+        border: "1px solid silver",
+        padding: 6
+      };
+      return React.createElement("div", {
+        style: borderedStyle
+      }, this.props.children);
+    }
+  }]);
+
+  return BorderWrap;
+}(React.Component);
+
+var IssueRow =
+/*#__PURE__*/
+function (_React$Component3) {
+  _inherits(IssueRow, _React$Component3);
+
+  function IssueRow() {
+    _classCallCheck(this, IssueRow);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(IssueRow).apply(this, arguments));
+  }
+
+  _createClass(IssueRow, [{
+    key: "render",
+    value: function render() {
+      var issue = this.props.issue;
+      return React.createElement("tr", null, React.createElement("td", null, issue.id), React.createElement("td", null, issue.status), React.createElement("td", null, issue.owner), React.createElement("td", null, issue.created.toDateString()), React.createElement("td", null, issue.effort), React.createElement("td", null, issue.due ? issue.due.toDateString() : ''), React.createElement("td", null, issue.title));
+    }
+  }]);
+
+  return IssueRow;
+}(React.Component);
+
+var IssueFilter =
+/*#__PURE__*/
+function (_React$Component4) {
+  _inherits(IssueFilter, _React$Component4);
 
   function IssueFilter() {
     _classCallCheck(this, IssueFilter);
@@ -39,31 +135,10 @@ function (_React$Component) {
   return IssueFilter;
 }(React.Component);
 
-var IssueTable =
-/*#__PURE__*/
-function (_React$Component2) {
-  _inherits(IssueTable, _React$Component2);
-
-  function IssueTable() {
-    _classCallCheck(this, IssueTable);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(IssueTable).apply(this, arguments));
-  }
-
-  _createClass(IssueTable, [{
-    key: "render",
-    value: function render() {
-      return React.createElement("h3", null, "This is a placeholder for a table of issues.");
-    }
-  }]);
-
-  return IssueTable;
-}(React.Component);
-
 var IssueAdd =
 /*#__PURE__*/
-function (_React$Component3) {
-  _inherits(IssueAdd, _React$Component3);
+function (_React$Component5) {
+  _inherits(IssueAdd, _React$Component5);
 
   function IssueAdd() {
     _classCallCheck(this, IssueAdd);
@@ -83,8 +158,8 @@ function (_React$Component3) {
 
 var IssueList =
 /*#__PURE__*/
-function (_React$Component4) {
-  _inherits(IssueList, _React$Component4);
+function (_React$Component6) {
+  _inherits(IssueList, _React$Component6);
 
   function IssueList() {
     _classCallCheck(this, IssueList);
