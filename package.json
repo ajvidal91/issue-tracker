@@ -18,7 +18,9 @@
     "@babel/preset-react": "^7.8.0"
   },
   "dependencies": {
+    "apollo-server-express": "^2.9.16",
     "express": "^4.17.1",
+    "graphql": "^0.13.2",
     "nodemon": "^1.19.4"
   }
 }
